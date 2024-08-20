@@ -21,6 +21,7 @@ class AudioPlayer {
         this.play()
     });
   }
+  
 
   async play() {
     if(this.isPlaying) return
