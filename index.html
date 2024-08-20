@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Game</title>
+
+  <link href="/chess-game/styles.css" rel="stylesheet">
+  <script src="/chess-game/chess.min.js"></script>
+  <script src="/chess-game/jquery-3.5.1.min.js"></script>
+  <script src="/chess-game/chessboard-1.0.0.min.js"></script>
+  <script src="/chess-game/game.js"></script>
+
+</head>
+<body>
+  <div id="game-container"></div>
+  
+  <script>
+    $(document).ready(function() {
+
+      /*
+        Указываем заголовок раунда (к примеру "Соберите конфеты!")
+      */
+
+      const title = "Соберите конфеты!" 
+
+
+      /*
+        Указываем описание раунда (к примеру "Соберите все конфеты за минимальное количество ходов")
+      */
+
+      const description = 'Ваша задача - собрать все конфеты за минимальное количество ходов'
+
+
+      /*
+        Ссылка на следующий раунд (открывается при клике на "Далее")
+      */
+
+      const nextRoundLink = 'https://google.com/'
+
+
+      /*
+        Указывает фигуру которой будет ходить игрок
+
+        K - Rороль
+        Q - Ферзь
+        R - Ладья
+        B - Слон
+        K - Конь
+        P - Пешка
+      */
+
+      const playerType = 'B' 
+
+
+      /*
+        Перечисляем клетки в которых появятся белые фигуры. Перечислять необходимо через пробел. 
+        Если нужна только 1 фигура, то пишем только одну клетку.
+
+        Примеры:
+        'a1' - появится 1 фигура в клетке a1
+        'a1 h1' - появятся 2 фигуры, в клетках a1 и h1
+      */
+
+      const playerCells = 'a1 h1 e2'
+
+      
+      /*
+        Перечисляем через пробел клетки, в которых будут конфеты. Аналогично перечислению клеток для фигур игрока.
+      */
+
+      const candyCells = 'b5 d7 e4 g2 h5'
+      
+
+      /*
+        Если значение равно true, то в игре появится фраг (жаба). Если равно false, то врага не будет.
+      */
+
+      const createEnemy = true // true или false
+      
+
+      /*
+        Здесь указываем максимальное количество ходов для получение 3х звезд за прохождение уровня.
+        Если игрок привысит это число, то он получит 2 или же 1 звезду (в зависимости от кол-ва ходов).
+      */
+
+      const maxTurns = 10
+
+
+      /*
+        Все что дальше лучше не трогать
+      */
+
+      const game = new Game({
+        boardId: 'board',
+        container: '#game-container'
+      })
+
+      game.setRoundData({
+        title: title,
+        desc: description,
+        nextRoundLink: nextRoundLink,
+        playerType: playerType,
+        playerCells: playerCells,
+        candyCells: candyCells,
+        createEnemy: createEnemy,
+        maxTurns: maxTurns
+      })
+    })   
+  </script>
+</body>
+</html>
