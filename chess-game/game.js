@@ -1,4 +1,4 @@
-const STATIC_PATH = '/chess-game/'
+const STATIC_PATH = './'
 
 
 const getStaticUrl = filename => `${STATIC_PATH}${filename}`
