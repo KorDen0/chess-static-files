@@ -1,4 +1,4 @@
-const STATIC_PATH = 'https://korden0.github.io/chess-static-files.github.io/chess-game/'
+const STATIC_PATH = 'https://korden0.github.io/chess-static-files/chess-game/'
 
 
 const getStaticUrl = filename => `${STATIC_PATH}${filename}`
@@ -21,7 +21,7 @@ class AudioPlayer {
         this.play()
     });
   }
-  
+
 
   async play() {
     if(this.isPlaying) return
